@@ -1,4 +1,4 @@
-package net.mrhitech.modname;
+package net.mrhitech.firmarail;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -15,23 +15,23 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.mrhitech.modname.common.item.TerraFirmaRailsItems;
+import net.mrhitech.firmarail.common.item.FirmaRailItems;
 import org.slf4j.Logger;
 
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(TerraFirmaRails.MOD_ID)
-public class TerraFirmaRails
+@Mod(FirmaRail.MOD_ID)
+public class FirmaRail
 {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "tfrails";
+    public static final String MOD_ID = "firmarail";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
-    public TerraFirmaRails()
+    public FirmaRail()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        TerraFirmaRailsItems.register(modEventBus);
+        FirmaRailItems.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
