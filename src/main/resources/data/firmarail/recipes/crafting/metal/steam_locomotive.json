@@ -1,0 +1,29 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "t  ",
+    "MB ",
+    "WRW"
+  ],
+  "key": {
+    "t": {
+      "tag": "tfc:tuyeres"
+    },
+    "M": {
+      "item": "tfc:brass_mechanisms"
+    },
+    "B": {
+      "tag": "firmarail:boilers"
+    },
+    "W": {
+      "item": "firmarail:metal/minecart_wheel"
+    },
+    "R": {
+      "tag": "firmarail:rods/metal"
+    }
+  },
+  "result": {
+    "item": "railcraft:steam_locomotive"
+  }
+}

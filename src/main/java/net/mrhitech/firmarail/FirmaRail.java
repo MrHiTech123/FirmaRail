@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.mrhitech.firmarail.common.creative.FirmaRailCreativeTabs;
 import net.mrhitech.firmarail.common.item.FirmaRailItems;
 import org.slf4j.Logger;
 
@@ -55,10 +56,7 @@ public class FirmaRail
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-
-            LOGGER.info("Hello world");
-        }
+        FirmaRailCreativeTabs.AddCreative(event);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

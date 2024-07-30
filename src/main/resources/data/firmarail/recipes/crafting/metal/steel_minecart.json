@@ -1,0 +1,24 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S S",
+    "SSS",
+    "WRW"
+  ],
+  "key": {
+    "S": {
+      "item": "tfc:metal/sheet/steel"
+    },
+    "W": {
+      "item": "firmarail:metal/minecart_wheel"
+    },
+    "R": {
+      "tag": "firmarail:rods/metal"
+    }
+  },
+  "result": {
+    "item": "minecraft:minecart",
+    "count": 2
+  }
+}

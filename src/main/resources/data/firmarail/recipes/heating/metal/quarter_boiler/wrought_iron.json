@@ -1,0 +1,12 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "firmarail:metal/quarter_boiler/wrought_iron"
+  },
+  "result_fluid": {
+    "fluid": "tfc:metal/wrought_iron",
+    "amount": 400
+  },
+  "temperature": 1535
+}

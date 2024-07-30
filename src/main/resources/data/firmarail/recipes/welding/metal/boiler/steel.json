@@ -1,0 +1,14 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfc:welding",
+  "first_input": {
+    "item": "firmarail:metal/half_boiler/steel"
+  },
+  "second_input": {
+    "item": "firmarail:metal/half_boiler/steel"
+  },
+  "tier": 3,
+  "result": {
+    "item": "firmarail:metal/boiler/steel"
+  }
+}
