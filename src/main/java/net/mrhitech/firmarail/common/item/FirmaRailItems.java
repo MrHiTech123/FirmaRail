@@ -1,6 +1,9 @@
 package net.mrhitech.firmarail.common.item;
 
+import mods.railcraft.world.item.CrowbarItem;
+import net.dries007.tfc.common.items.ToolItem;
 import net.dries007.tfc.util.Helpers;
+import net.dries007.tfc.util.Metal;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,6 +25,8 @@ public class FirmaRailItems {
     
     public static final RegistryObject<Item> MINECART_WHEEL = ITEMS.register("metal/minecart_wheel", () -> new Item(new Item.Properties()));
     
+    public static final Map<Metal.Default, RegistryObject<Item>> CROWBARS = Helpers.mapOfKeys(Metal.Default.class, metal -> metal.hasTools(), metal -> 
+            ITEMS.register("metal/crowbar/" + metal.getSerializedName(), () -> new CrowbarItem(ToolItem.calculateVanillaAttackDamage(0.75f, metal.toolTier()), -2.8f, metal.toolTier(), new Item.Properties())));
     
     public static void register(IEventBus bus) {
         ITEMS.register(bus);

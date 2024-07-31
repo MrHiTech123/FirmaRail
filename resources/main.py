@@ -16,7 +16,9 @@ def generate_heat_data():
     for metal, coefficient in BOILER_METAL_COEFFICIENTS.items():
         item_heat(rm, ('metal', 'half_boiler', metal), f'firmarail:metal/half_boiler/{metal}', METALS[metal].ingot_heat_capacity(), METALS[metal].melt_temperature, 400 * coefficient)
         item_heat(rm, ('metal', 'boiler', metal), f'firmarail:metal/boiler/{metal}', METALS[metal].ingot_heat_capacity(), METALS[metal].melt_temperature, 800 * coefficient)
-
+    for metal, metal_data in METALS.items():
+        if 'tool' in metal_data.types:
+            item_heat(rm, ('metal', 'crowbar', metal), f'firmarail:metal/crowbar/{metal}', METALS[metal].ingot_heat_capacity() / 2, METALS[metal].melt_temperature, 50)
 def generate_size_data():
     print('\tGenerating size data...')
     item_size(rm, ('metal', 'quarter_boilers'), '#firmarail:quarter_boilers', Size.large, Weight.medium)
@@ -37,6 +39,10 @@ def generate_item_models():
         rm.item_model(('metal', 'half_boiler', metal), f'firmarail:item/metal/half_boiler/{metal}').with_lang(lang(metal + '_half_boiler'))
         rm.item_model(('metal', 'boiler', metal), f'firmarail:item/metal/boiler/{metal}').with_lang(lang(metal + '_boiler'))
     
+    for metal, metal_data in METALS.items():
+        if 'tool' in metal_data.types:
+            rm.item_model(('metal', 'crowbar', metal), f'firmarail:item/metal/crowbar/{metal}', parent='minecraft:item/handheld').with_lang(lang(f'{metal} railworker\'s crowbar'))
+    
 def generate_models():
     print('Generating models...')
     generate_item_models()
@@ -52,6 +58,11 @@ def generate_anvil_recipes():
     welding_recipe(rm, ('metal', 'half_boiler', 'wrought_iron'), 'firmarail:metal/quarter_boiler/wrought_iron', 'firmarail:metal/quarter_boiler/wrought_iron', 'firmarail:metal/half_boiler/wrought_iron', METALS['wrought_iron'].tier - 1)
     for metal in BOILER_METAL_COEFFICIENTS:
         welding_recipe(rm, ('metal', 'boiler', metal), f'firmarail:metal/half_boiler/{metal}', f'firmarail:metal/half_boiler/{metal}', f'firmarail:metal/boiler/{metal}', METALS[metal].tier - 1)
+    
+    for metal, metal_data in METALS.items():
+        if 'tool' in metal_data.types:
+            anvil_recipe(rm, ('metal', 'crowbar', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/crowbar/{metal}', metal_data.tier, Rules.punch_third_last, Rules.punch_second_last, Rules.punch_last, bonus=True)
+
 
 def generate_crafting_recipes():
     print('\tGenerating crafting recipes...')
@@ -72,7 +83,9 @@ def generate_heat_recipes():
     for metal, coefficient in BOILER_METAL_COEFFICIENTS.items():
         heat_recipe(rm, ('metal', 'half_boiler', metal), f'firmarail:metal/half_boiler/{metal}', METALS[metal].melt_temperature, result_fluid=f'{400 * coefficient} {melt_metal(metal)}')
         heat_recipe(rm, ('metal', 'boiler', metal), f'firmarail:metal/boiler/{metal}', METALS[metal].melt_temperature, result_fluid=f'{800 * coefficient} {melt_metal(metal)}')
-
+    for metal, metal_data in METALS.items():
+        if 'tool' in metal_data.types:
+            heat_recipe(rm, ('metal', 'crowbar', metal), f'firmarail:metal/crowbar/{metal}', METALS[metal].melt_temperature, result_fluid=f'50 {melt_metal(metal)}', use_durability=True)
 
 def generate_recipes():
     print('Generating recipes...')

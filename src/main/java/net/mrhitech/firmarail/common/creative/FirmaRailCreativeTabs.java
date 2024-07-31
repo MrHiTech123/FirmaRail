@@ -1,6 +1,7 @@
 package net.mrhitech.firmarail.common.creative;
 
 import net.dries007.tfc.common.TFCCreativeTabs;
+import net.dries007.tfc.util.Metal;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.mrhitech.firmarail.common.item.BoilerMetal;
 import net.mrhitech.firmarail.common.item.FirmaRailItems;
@@ -17,6 +18,13 @@ public class FirmaRailCreativeTabs {
                 event.accept(FirmaRailItems.BOILERS.get(metal));
             }
             event.accept(FirmaRailItems.MINECART_WHEEL);
+            
+            for (Metal.Default metal : Metal.Default.values()) {
+                if (metal.hasTools()) {
+                    event.accept(FirmaRailItems.CROWBARS.get(metal));
+                }
+            }
+            
         }
     }
 }

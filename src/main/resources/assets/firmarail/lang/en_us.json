@@ -5,5 +5,14 @@
   "item.firmarail.metal.half_boiler.wrought_iron": "Wrought Iron Half Boiler",
   "item.firmarail.metal.boiler.wrought_iron": "Wrought Iron Boiler",
   "item.firmarail.metal.half_boiler.steel": "Steel Half Boiler",
-  "item.firmarail.metal.boiler.steel": "Steel Boiler"
+  "item.firmarail.metal.boiler.steel": "Steel Boiler",
+  "item.firmarail.metal.crowbar.bismuth_bronze": "Bismuth Bronze Railworker's Crowbar",
+  "item.firmarail.metal.crowbar.black_bronze": "Black Bronze Railworker's Crowbar",
+  "item.firmarail.metal.crowbar.bronze": "Bronze Railworker's Crowbar",
+  "item.firmarail.metal.crowbar.copper": "Copper Railworker's Crowbar",
+  "item.firmarail.metal.crowbar.wrought_iron": "Wrought Iron Railworker's Crowbar",
+  "item.firmarail.metal.crowbar.steel": "Steel Railworker's Crowbar",
+  "item.firmarail.metal.crowbar.black_steel": "Black Steel Railworker's Crowbar",
+  "item.firmarail.metal.crowbar.blue_steel": "Blue Steel Railworker's Crowbar",
+  "item.firmarail.metal.crowbar.red_steel": "Red Steel Railworker's Crowbar"
 }

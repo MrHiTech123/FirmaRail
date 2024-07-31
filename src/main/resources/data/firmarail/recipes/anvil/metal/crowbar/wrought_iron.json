@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfc:anvil",
+  "input": {
+    "item": "tfc:metal/rod/wrought_iron"
+  },
+  "result": {
+    "item": "firmarail:metal/crowbar/wrought_iron"
+  },
+  "tier": 3,
+  "rules": [
+    "punch_third_last",
+    "punch_second_last",
+    "punch_last"
+  ],
+  "apply_forging_bonus": true
+}

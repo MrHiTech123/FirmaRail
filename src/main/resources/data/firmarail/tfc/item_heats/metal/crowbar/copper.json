@@ -1,0 +1,9 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "ingredient": {
+    "item": "firmarail:metal/crowbar/copper"
+  },
+  "heat_capacity": 0.714,
+  "forging_temperature": 648,
+  "welding_temperature": 864
+}

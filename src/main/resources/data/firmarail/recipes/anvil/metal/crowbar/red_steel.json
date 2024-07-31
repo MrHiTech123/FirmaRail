@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfc:anvil",
+  "input": {
+    "item": "tfc:metal/rod/red_steel"
+  },
+  "result": {
+    "item": "firmarail:metal/crowbar/red_steel"
+  },
+  "tier": 6,
+  "rules": [
+    "punch_third_last",
+    "punch_second_last",
+    "punch_last"
+  ],
+  "apply_forging_bonus": true
+}
