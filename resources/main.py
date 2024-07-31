@@ -75,7 +75,12 @@ def generate_crafting_recipes():
     
     rm.crafting_shaped(('crafting', 'metal', 'steam_locomotive'), ['t  ', 'MB ', 'WRW'], {'t': '#tfc:tuyeres', 'M': 'tfc:brass_mechanisms', 'B': '#firmarail:boilers', 'W': 'firmarail:metal/minecart_wheel', 'R': '#firmarail:rods/metal'}, 'railcraft:steam_locomotive')
     disable_recipe(rm, 'railcraft:steam_locomotive')
-
+    disable_recipe(rm, 'railcraft:iron_crowbar')
+    disable_recipe(rm, 'railcraft:steel_crowbar')
+    disable_recipe(rm, 'railcraft:diamond_crowbar')
+    
+    
+    
 def generate_heat_recipes():
     print('\tGenerating heat recipes...')
     heat_recipe(rm, ('metal', 'quarter_boiler', 'wrought_iron'), 'firmarail:metal/quarter_boiler/wrought_iron', METALS['wrought_iron'].melt_temperature, result_fluid='400 tfc:metal/wrought_iron')
