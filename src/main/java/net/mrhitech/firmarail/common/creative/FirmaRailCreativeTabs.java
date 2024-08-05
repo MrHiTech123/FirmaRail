@@ -4,6 +4,7 @@ import net.dries007.tfc.common.TFCCreativeTabs;
 import net.dries007.tfc.util.Metal;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.mrhitech.firmarail.common.item.BoilerMetal;
+import net.mrhitech.firmarail.common.item.ConductiveMetal;
 import net.mrhitech.firmarail.common.item.FirmaRailItems;
 import net.mrhitech.firmarail.common.item.QuarterBoilerMetal;
 
@@ -23,6 +24,9 @@ public class FirmaRailCreativeTabs {
                 if (metal.hasTools()) {
                     event.accept(FirmaRailItems.CROWBARS.get(metal));
                 }
+            }
+            for (ConductiveMetal metal : ConductiveMetal.values()) {
+                event.accept(FirmaRailItems.METAL_COILS.get(metal));
             }
             
         }

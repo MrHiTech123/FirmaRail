@@ -1,0 +1,21 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:wooden_pressure_plates"
+    },
+    {
+      "item": "minecraft:redstone_torch"
+    },
+    {
+      "tag": "firmarail:metal_coils"
+    },
+    {
+      "tag": "tfc:magnetic_rocks"
+    }
+  ],
+  "result": {
+    "item": "railcraft:locking_track_kit"
+  }
+}

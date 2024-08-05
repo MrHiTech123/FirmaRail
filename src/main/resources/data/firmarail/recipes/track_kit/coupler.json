@@ -1,0 +1,18 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:wooden_pressure_plates"
+    },
+    {
+      "tag": "firmarail:chains"
+    },
+    {
+      "item": "tfc:brass_mechanisms"
+    }
+  ],
+  "result": {
+    "item": "railcraft:coupler_track_kit"
+  }
+}

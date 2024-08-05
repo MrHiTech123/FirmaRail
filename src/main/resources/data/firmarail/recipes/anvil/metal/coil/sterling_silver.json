@@ -1,0 +1,16 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfc:anvil",
+  "input": {
+    "item": "tfc:metal/rod/sterling_silver"
+  },
+  "result": {
+    "item": "firmarail:metal/coil/sterling_silver"
+  },
+  "tier": 1,
+  "rules": [
+    "hit_third_last",
+    "hit_second_last",
+    "hit_last"
+  ]
+}

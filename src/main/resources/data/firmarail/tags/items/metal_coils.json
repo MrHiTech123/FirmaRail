@@ -1,0 +1,18 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "replace": false,
+  "values": [
+    "firmarail:metal/coil/black_bronze",
+    "firmarail:metal/coil/black_steel",
+    "firmarail:metal/coil/brass",
+    "firmarail:metal/coil/bronze",
+    "firmarail:metal/coil/copper",
+    "firmarail:metal/coil/gold",
+    "firmarail:metal/coil/nickel",
+    "firmarail:metal/coil/red_steel",
+    "firmarail:metal/coil/rose_gold",
+    "firmarail:metal/coil/silver",
+    "firmarail:metal/coil/sterling_silver",
+    "firmarail:metal/coil/zinc"
+  ]
+}

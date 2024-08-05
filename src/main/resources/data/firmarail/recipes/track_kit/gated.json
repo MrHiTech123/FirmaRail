@@ -1,0 +1,15 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:wooden_pressure_plates"
+    },
+    {
+      "tag": "forge:fence_gates"
+    }
+  ],
+  "result": {
+    "item": "railcraft:gated_track_kit"
+  }
+}
