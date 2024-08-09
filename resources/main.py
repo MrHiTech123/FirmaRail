@@ -76,6 +76,7 @@ def generate_anvil_recipes():
         if 'part' in metal_data.types:
             anvil_recipe(rm, ('metal', 'coil', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/coil/{metal}', metal_data.tier, Rules.hit_third_last, Rules.hit_second_last, Rules.hit_last)
     
+    # TODO: WHISTLE TUNER
 
 def generate_crafting_recipes():
     print('\tGenerating crafting recipes...')
@@ -91,6 +92,9 @@ def generate_crafting_recipes():
     disable_recipe(rm, 'railcraft:iron_crowbar')
     disable_recipe(rm, 'railcraft:steel_crowbar')
     disable_recipe(rm, 'railcraft:diamond_crowbar')
+    disable_recipe(rm, 'railcraft:iron_spike_maul')
+    disable_recipe(rm, 'railcraft:steel_spike_maul')
+    disable_recipe(rm, 'railcraft:diamond_spike_maul')
     
     rm.crafting_shapeless(('crafting', 'track_kit', 'locking'), ('#minecraft:wooden_pressure_plates', 'minecraft:redstone_torch', '#firmarail:conductive_metal_coils', '#tfc:magnetic_rocks'), 'railcraft:locking_track_kit')
     rm.crafting_shapeless(('crafting', 'track_kit', 'buffer_stop'), ('#minecraft:wooden_pressure_plates', '#firmarail:rods/metal', '#firmarail:rods/metal', '#firmarail:rods/metal'), 'railcraft:buffer_stop_track_kit')
@@ -104,6 +108,33 @@ def generate_crafting_recipes():
     
     for kit in ALL_TRACK_KITS:
         disable_recipe(rm, f'railcraft:{kit}_track_kit')
+    
+    disable_recipe(rm, f'railcraft:steel_sword')
+    disable_recipe(rm, f'railcraft:steel_axe')
+    disable_recipe(rm, f'railcraft:steel_pickaxe')
+    disable_recipe(rm, f'railcraft:steel_shovel')
+    disable_recipe(rm, f'railcraft:steel_hoe')
+    disable_recipe(rm, f'railcraft:steel_helmet')
+    disable_recipe(rm, f'railcraft:steel_chestplate')
+    disable_recipe(rm, f'railcraft:steel_leggings')
+    disable_recipe(rm, f'railcraft:steel_boots')
+    disable_recipe(rm, f'railcraft:coke_oven_bricks')
+    disable_recipe(rm, f'railcraft:charge_meter')
+    disable_recipe(rm, f'railcraft:steel_anvil')
+    disable_recipe(rm, f'railcraft:brass_ingot_crafted_with_ingots')
+    disable_recipe(rm, f'railcraft:bronze_ingot_crafted_with_ingots')
+    disable_recipe(rm, f'railcraft:invar_ingot_crafted_with_ingots')
+    disable_recipe(rm, f'railcraft:bushing_gear_brass')
+    disable_recipe(rm, f'railcraft:bushing_gear_bronze')
+    disable_recipe(rm, f'railcraft:sheep_detector')
+    disable_recipe(rm, f'railcraft:tank_detector')
+    disable_recipe(rm, f'railcraft:villager_detector')
+    disable_recipe(rm, f'railcraft:signal_block_surveyor')
+    disable_recipe(rm, f'railcraft:overalls')
+    disable_recipe(rm, f'railcraft:track_parts_steel_nugget')
+    disable_recipe(rm, f'railcraft:track_parts_bronze_nugget')
+    disable_recipe(rm, f'railcraft:track_parts_iron_nugget')
+    disable_recipe(rm, f'railcraft:standard_rail_from_rail')
     
     
 def generate_heat_recipes():
