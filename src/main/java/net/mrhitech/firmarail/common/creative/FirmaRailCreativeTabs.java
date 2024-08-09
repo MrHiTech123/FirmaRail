@@ -24,10 +24,11 @@ public class FirmaRailCreativeTabs {
                 if (metal.hasTools()) {
                     event.accept(FirmaRailItems.CROWBARS.get(metal));
                 }
+                if (metal.hasParts()) {
+                    event.accept(FirmaRailItems.METAL_COILS.get(metal));
+                }
             }
-            for (ConductiveMetal metal : ConductiveMetal.values()) {
-                event.accept(FirmaRailItems.METAL_COILS.get(metal));
-            }
+            
             
         }
     }

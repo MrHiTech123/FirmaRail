@@ -9,7 +9,7 @@
       "item": "minecraft:redstone_torch"
     },
     {
-      "tag": "firmarail:metal_coils"
+      "tag": "firmarail:conductive_metal_coils"
     },
     {
       "tag": "tfc:magnetic_rocks"

@@ -25,11 +25,11 @@ public class FirmaRailItems {
     
     public static final RegistryObject<Item> MINECART_WHEEL = ITEMS.register("metal/minecart_wheel", () -> new Item(new Item.Properties()));
     
-    public static final Map<Metal.Default, RegistryObject<Item>> CROWBARS = Helpers.mapOfKeys(Metal.Default.class, metal -> metal.hasTools(), metal -> 
+    public static final Map<Metal.Default, RegistryObject<Item>> CROWBARS = Helpers.mapOfKeys(Metal.Default.class, Metal.Default::hasTools, metal -> 
             ITEMS.register("metal/crowbar/" + metal.getSerializedName(), () -> new CrowbarItem(ToolItem.calculateVanillaAttackDamage(0.75f, metal.toolTier()), -2.8f, metal.toolTier(), new Item.Properties())));
     
-    public static final Map<ConductiveMetal, RegistryObject<Item>> METAL_COILS = Helpers.mapOfKeys(ConductiveMetal.class, metal -> 
-            ITEMS.register("metal/coil/" + metal.getId(), () -> new Item(new Item.Properties())));
+    public static final Map<Metal.Default, RegistryObject<Item>> METAL_COILS = Helpers.mapOfKeys(Metal.Default.class, Metal.Default::hasParts, metal -> 
+            ITEMS.register("metal/coil/" + metal.getSerializedName(), () -> new Item(new Item.Properties())));
     
     public static void register(IEventBus bus) {
         ITEMS.register(bus);

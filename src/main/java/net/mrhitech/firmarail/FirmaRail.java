@@ -2,7 +2,6 @@ package net.mrhitech.firmarail;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,12 +25,13 @@ public class FirmaRail
 {
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "firmarail";
+    
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     public FirmaRail()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+        
         FirmaRailItems.register(modEventBus);
 
         // Register the commonSetup method for modloading

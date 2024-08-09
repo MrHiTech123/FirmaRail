@@ -1,0 +1,15 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:wooden_pressure_plates"
+    },
+    {
+      "tag": "firmarail:rods/metal"
+    }
+  ],
+  "result": {
+    "item": "railcraft:whistle_track_kit"
+  }
+}

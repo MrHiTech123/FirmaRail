@@ -6,13 +6,10 @@
       "tag": "minecraft:wooden_pressure_plates"
     },
     {
-      "tag": "firmarail:metal_coils"
-    },
-    {
-      "tag": "minecraft:wooden_pressure_plates"
+      "item": "minecraft:hopper"
     }
   ],
   "result": {
-    "item": "railcraft:detector_track_kit"
+    "item": "railcraft:dumping_track_kit"
   }
 }

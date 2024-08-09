@@ -2,6 +2,7 @@ from alcs_n_russians_funcs import *
 
 BOILER_METAL_COEFFICIENTS = {'wrought_iron': 2, 'steel': 1}
 CONDUCTIVE_METALS = ['black_bronze', 'black_steel', 'brass', 'bronze', 'copper', 'gold', 'nickel', 'red_steel', 'rose_gold', 'silver', 'sterling_silver', 'zinc']
+ALL_TRACK_KITS = ['transition', 'locking', 'buffer_stop', 'activator', 'booster', 'control', 'gated', 'detector', 'coupler', 'embarking', 'disembarking', 'dumping', 'launcher', 'one_way', 'whistle', 'locomotive', 'throttle', 'routing']
 
 
 rm = ResourceManager('firmarail')
@@ -21,8 +22,9 @@ def generate_heat_data():
     for metal, metal_data in METALS.items():
         if 'tool' in metal_data.types:
             item_heat(rm, ('metal', 'crowbar', metal), f'firmarail:metal/crowbar/{metal}', METALS[metal].ingot_heat_capacity() / 2, METALS[metal].melt_temperature, 50)
-    for metal in CONDUCTIVE_METALS:
-        item_heat(rm, ('metal', 'coil', metal), f'firmarail:metal/coil/{metal}', METALS[metal].ingot_heat_capacity(), METALS[metal].melt_temperature, 50)
+    for metal, metal_data in METALS.items():
+        if 'part' in metal_data.types:
+            item_heat(rm, ('metal', 'coil', metal), f'firmarail:metal/coil/{metal}', metal_data.ingot_heat_capacity(), metal_data.melt_temperature, 50)
 def generate_size_data():
     print('\tGenerating size data...')
     item_size(rm, ('metal', 'quarter_boilers'), '#firmarail:quarter_boilers', Size.large, Weight.medium)
@@ -47,8 +49,9 @@ def generate_item_models():
         if 'tool' in metal_data.types:
             rm.item_model(('metal', 'crowbar', metal), f'firmarail:item/metal/crowbar/{metal}', parent='minecraft:item/handheld').with_lang(lang(f'{metal} railworker\'s crowbar'))
     
-    for metal in CONDUCTIVE_METALS:
-        rm.item_model(('metal', 'coil', metal), f'firmarail:item/metal/coil/{metal}').with_lang(lang(f'{metal}_coil'))
+    for metal, metal_data in METALS.items():
+        if 'part' in metal_data.types:
+            rm.item_model(('metal', 'coil', metal), f'firmarail:item/metal/coil/{metal}').with_lang(lang(f'{metal}_coil'))
     
 def generate_models():
     print('Generating models...')
@@ -69,8 +72,9 @@ def generate_anvil_recipes():
     for metal, metal_data in METALS.items():
         if 'tool' in metal_data.types:
             anvil_recipe(rm, ('metal', 'crowbar', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/crowbar/{metal}', metal_data.tier, Rules.punch_third_last, Rules.punch_second_last, Rules.punch_last, bonus=True)
-    for metal in CONDUCTIVE_METALS:
-        anvil_recipe(rm, ('metal', 'coil', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/coil/{metal}', METALS[metal].tier, Rules.hit_third_last, Rules.hit_second_last, Rules.hit_last)
+    for metal, metal_data in METALS.items():
+        if 'part' in metal_data.types:
+            anvil_recipe(rm, ('metal', 'coil', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/coil/{metal}', metal_data.tier, Rules.hit_third_last, Rules.hit_second_last, Rules.hit_last)
     
 
 def generate_crafting_recipes():
@@ -88,13 +92,18 @@ def generate_crafting_recipes():
     disable_recipe(rm, 'railcraft:steel_crowbar')
     disable_recipe(rm, 'railcraft:diamond_crowbar')
     
-    rm.crafting_shapeless(('track_kit', 'locking'), ('#minecraft:wooden_pressure_plates', 'minecraft:redstone_torch', '#firmarail:metal_coils', '#tfc:magnetic_rocks'), 'railcraft:locking_track_kit')
-    rm.crafting_shapeless(('track_kit', 'buffer_stop'), ('#minecraft:wooden_pressure_plates', '#firmarail:rods/metal', '#firmarail:rods/metal', '#firmarail:rods/metal'), 'railcraft:buffer_stop_track_kit')
-    rm.crafting_shapeless(('track_kit', 'activator'), ('#minecraft:wooden_pressure_plates', 'minecraft:redstone_torch'), 'railcraft:activator_track_kit')
-    rm.crafting_shapeless(('track_kit', 'gated'), ('#minecraft:wooden_pressure_plates', '#forge:fence_gates'), 'railcraft:gated_track_kit')
-    rm.crafting_shapeless(('track_kit', 'detector'), ('#minecraft:wooden_pressure_plates', '#firmarail:metal_coils', '#minecraft:wooden_pressure_plates'), 'railcraft:detector_track_kit')
-    rm.crafting_shapeless(('track_kit', 'coupler'), ('#minecraft:wooden_pressure_plates', '#firmarail:chains', 'tfc:brass_mechanisms'), 'railcraft:coupler_track_kit')
+    rm.crafting_shapeless(('crafting', 'track_kit', 'locking'), ('#minecraft:wooden_pressure_plates', 'minecraft:redstone_torch', '#firmarail:conductive_metal_coils', '#tfc:magnetic_rocks'), 'railcraft:locking_track_kit')
+    rm.crafting_shapeless(('crafting', 'track_kit', 'buffer_stop'), ('#minecraft:wooden_pressure_plates', '#firmarail:rods/metal', '#firmarail:rods/metal', '#firmarail:rods/metal'), 'railcraft:buffer_stop_track_kit')
+    rm.crafting_shapeless(('crafting', 'track_kit', 'activator'), ('#minecraft:wooden_pressure_plates', 'minecraft:redstone_torch'), 'railcraft:activator_track_kit')
+    rm.crafting_shapeless(('crafting', 'track_kit', 'gated'), ('#minecraft:wooden_pressure_plates', '#forge:fence_gates'), 'railcraft:gated_track_kit')
+    rm.crafting_shapeless(('crafting', 'track_kit', 'detector'), ('#minecraft:wooden_pressure_plates', '#firmarail:metal_coils', '#minecraft:wooden_pressure_plates', 'minecraft:redstone'), 'railcraft:detector_track_kit')
+    rm.crafting_shapeless(('crafting', 'track_kit', 'coupler'), ('#minecraft:wooden_pressure_plates', '#firmarail:chains', 'tfc:brass_mechanisms'), 'railcraft:coupler_track_kit')
+    rm.crafting_shapeless(('crafting', 'track_kit', 'dumping'), ('#minecraft:wooden_pressure_plates', 'minecraft:hopper'), 'railcraft:dumping_track_kit')
+    rm.crafting_shapeless(('crafting', 'track_kit', 'disembarking'), ('#minecraft:wooden_pressure_plates', 'minecraft:redstone', '#firmarail:conductive_metal_coils'), 'railcraft:disembarking_track_kit')
+    rm.crafting_shapeless(('crafting', 'track_kit', 'whistle'), ('#minecraft:wooden_pressure_plates', '#firmarail:rods/metal'), 'railcraft:whistle_track_kit')
     
+    for kit in ALL_TRACK_KITS:
+        disable_recipe(rm, f'railcraft:{kit}_track_kit')
     
     
 def generate_heat_recipes():
@@ -106,9 +115,10 @@ def generate_heat_recipes():
         heat_recipe(rm, ('metal', 'boiler', metal), f'firmarail:metal/boiler/{metal}', METALS[metal].melt_temperature, result_fluid=f'{800 * coefficient} {melt_metal(metal)}')
     for metal, metal_data in METALS.items():
         if 'tool' in metal_data.types:
-            heat_recipe(rm, ('metal', 'crowbar', metal), f'firmarail:metal/crowbar/{metal}', METALS[metal].melt_temperature, result_fluid=f'50 {melt_metal(metal)}', use_durability=True)
-    for metal in CONDUCTIVE_METALS:
-        heat_recipe(rm, ('metal', 'coil', metal), f'firmarail:metal/coil/{metal}', METALS[metal].melt_temperature, result_fluid=f'50 {melt_metal(metal)}')
+            heat_recipe(rm, ('metal', 'crowbar', metal), f'firmarail:metal/crowbar/{metal}', metal_data.melt_temperature, result_fluid=f'50 {melt_metal(metal)}', use_durability=True)
+    for metal, metal_data in METALS.items():
+        if 'part' in metal_data.types:
+            heat_recipe(rm, ('metal', 'coil', metal), f'firmarail:metal/coil/{metal}', metal_data.melt_temperature, result_fluid=f'50 {melt_metal(metal)}')
 
 def generate_recipes():
     print('Generating recipes...')
@@ -118,13 +128,15 @@ def generate_recipes():
     
 def generate_item_tags():
     print('\tGenerating item tags...')
-    rm.item_tag('rods/metal', *[f'tfc:metal/rod/{metal}' for metal in METALS if 'utility' in METALS[metal].types])
-    rm.item_tag('chains', *[f'tfc:metal/chain/{metal}' for metal in METALS if 'utility' in METALS[metal].types])
+    rm.item_tag('rods/metal', *[f'tfc:metal/rod/{metal}' for metal, metal_data in METALS.items() if 'utility' in metal_data.types])
+    rm.item_tag('chains', *[f'tfc:metal/chain/{metal}' for metal, metal_data in METALS.items() if 'utility' in metal_data.types])
     rm.item_tag('quarter_boilers', 'firmarail:metal/quarter_boiler/wrought_iron')
     rm.item_tag('half_boilers', *[f'firmarail:metal/half_boiler/{metal}' for metal in BOILER_METAL_COEFFICIENTS])
     rm.item_tag('boilers', *[f'firmarail:metal/boiler/{metal}' for metal in BOILER_METAL_COEFFICIENTS])
-    rm.item_tag('metal_coils', *[f'firmarail:metal/coil/{metal}' for metal in CONDUCTIVE_METALS])
-
+    rm.item_tag('metal_coils', *[f'firmarail:metal/coil/{metal}' for metal, metal_data in METALS.items() if 'part' in metal_data.types])
+    rm.item_tag('conductive_metal_coils', *[f'firmarail:metal/coil/{metal}' for metal in CONDUCTIVE_METALS])
+    rm.item_tag('tool_metal_coils', *[f'firmarail:metal/coil/{metal}' for metal, metal_data in METALS.items() if 'tool' in metal_data.types])
+    
 
 def generate_tags():
     print('Generating tags...')
