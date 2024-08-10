@@ -10,8 +10,7 @@ plugins {
 
 mixin {
     // MixinGradle Settings
-    add(sourceSets.main.get(), "$modId.refmap.json")
-    add sourceSets.main, 'mixins.firmarail.refmap.json'
+    add sourceSets.main, 'firmarail.refmap.json'
     config 'mixins.firmarail.json'
 
     debug.verbose = true

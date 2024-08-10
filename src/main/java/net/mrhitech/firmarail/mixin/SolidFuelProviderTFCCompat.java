@@ -13,8 +13,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
+import java.lang.annotation.Target;
+
 // remap = false
-@Mixin(value = SolidFuelProvider.class, priority = 100000)
+@Mixin(value = SolidFuelProvider.class, priority = 100000, remap = false)
 public abstract class SolidFuelProviderTFCCompat implements FuelProvider {
     @Shadow
     private final Container container;
@@ -41,13 +43,13 @@ public abstract class SolidFuelProviderTFCCompat implements FuelProvider {
         else {
             burn = fuel.getDuration();
         }
-        
+
         if (burn > 0) {
             this.lastItem = fuelItem.getItem();
             this.container.setItem(this.slot, ContainerTools.depleteItem(fuelItem));
         }
-        
+
         return (float)burn;
-        
+
     }
 }
