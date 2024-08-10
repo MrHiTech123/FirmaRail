@@ -8,6 +8,9 @@ import mods.railcraft.world.level.material.steam.SteamBoiler;
 import mods.railcraft.world.level.material.steam.SteamConstants;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.mrhitech.firmarail.util.mixininterface.BaseSteamLocomotiveInterface;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -34,7 +37,13 @@ public abstract class BaseSteamLocomotiveTFCCompat extends Locomotive implements
     public void injectTick(CallbackInfo info) {
         if (!(this.steamTank.getRemainingSpace() >= SteamConstants.STEAM_PER_UNIT_WATER
                 || this.isShutdown())) {
+            
+            int oldWater = this.boiler.getWaterTank().getFluidAmount();
             this.boiler.tick(1);
+            int toFill = oldWater - this.boiler.getWaterTank().getFluidAmount();
+            FluidStack waterStack = new FluidStack(Fluids.WATER, toFill);
+            this.boiler.getWaterTank().fill(waterStack, IFluidHandler.FluidAction.EXECUTE);
+            
             
             this.setSmoking(this.boiler.isBurning());
             
