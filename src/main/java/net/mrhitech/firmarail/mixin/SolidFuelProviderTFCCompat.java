@@ -4,6 +4,7 @@ package net.mrhitech.firmarail.mixin;
 import mods.railcraft.util.container.ContainerTools;
 import mods.railcraft.world.level.material.FuelProvider;
 import mods.railcraft.world.level.material.steam.SolidFuelProvider;
+import mods.railcraft.world.entity.vehicle.locomotive.SteamLocomotive;
 import net.dries007.tfc.util.Fuel;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
