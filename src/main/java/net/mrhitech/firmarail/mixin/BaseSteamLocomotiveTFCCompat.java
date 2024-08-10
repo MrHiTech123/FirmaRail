@@ -47,7 +47,6 @@ public abstract class BaseSteamLocomotiveTFCCompat extends Locomotive implements
             
             this.setSmoking(this.boiler.isBurning());
             
-            // TODO: make venting a toggleable thing (why autodump while train has no coal??)
             if (!this.boiler.isBurning()) {
                 this.ventSteam();
             }

@@ -4,9 +4,10 @@
   "package": "net.mrhitech.firmarail.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BaseSteamLocomotiveTFCCompat",
     "SolidFuelProviderTFCCompat",
     "SteamBoilerTFCCompat",
-    "BaseSteamLocomotiveTFCCompat"
+    "SteamLocomotiveTFCCompat"
   ],
   "client": [],
   "injectors": {

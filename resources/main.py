@@ -167,6 +167,8 @@ def generate_item_tags():
     rm.item_tag('metal_coils', *[f'firmarail:metal/coil/{metal}' for metal, metal_data in METALS.items() if 'part' in metal_data.types])
     rm.item_tag('conductive_metal_coils', *[f'firmarail:metal/coil/{metal}' for metal in CONDUCTIVE_METALS])
     rm.item_tag('tool_metal_coils', *[f'firmarail:metal/coil/{metal}' for metal, metal_data in METALS.items() if 'tool' in metal_data.types])
+    rm.item_tag('steam_locomotive_fuel', '#minecraft:coals')
+    
     
 
 def generate_tags():
