@@ -17,16 +17,16 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@SuppressWarnings("all")
+import java.time.Clock;
+
+@SuppressWarnings("")
 @Mixin(value = BaseSteamLocomotive.class, remap = false)
 public abstract class BaseSteamLocomotiveTFCCompat extends Locomotive implements FluidTransferHandler, BaseSteamLocomotiveInterface {
     @Shadow
     private StandardTank steamTank;
-    @Shadow
     private SteamBoiler boiler;
-    boolean shutDown;
-    int shutdownOldWater;
     
     
     public BaseSteamLocomotiveTFCCompat(EntityType<?> type, Level level) {
@@ -35,9 +35,8 @@ public abstract class BaseSteamLocomotiveTFCCompat extends Locomotive implements
     
     @Inject(method = "tick", at = @At("HEAD"))
     public void injectTick(CallbackInfo info) {
-        shutDown = this.isShutDown();
         if (!(this.steamTank.getRemainingSpace() >= SteamConstants.STEAM_PER_UNIT_WATER
-                || shutDown)) {
+                || this.isShutdown())) {
             
             int oldWater = this.boiler.getWaterTank().getFluidAmount();
             this.boiler.tick(1);
