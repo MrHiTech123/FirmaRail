@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.Shadow;
 
 
 @Mixin(value = SteamLocomotive.class, remap = false)
+@SuppressWarnings("all")
 public abstract class SteamLocomotiveTFCCompat extends BaseSteamLocomotive {
     
     @Shadow

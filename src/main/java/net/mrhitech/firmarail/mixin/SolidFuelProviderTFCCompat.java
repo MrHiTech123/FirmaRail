@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import java.lang.annotation.Target;
 
 // remap = false
+@SuppressWarnings("all")
 @Mixin(value = SolidFuelProvider.class, priority = 100000, remap = false)
 public abstract class SolidFuelProviderTFCCompat implements FuelProvider {
     @Shadow
