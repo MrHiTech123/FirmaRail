@@ -30,7 +30,7 @@ def generate_size_data():
     item_size(rm, ('metal', 'quarter_boilers'), '#firmarail:quarter_boilers', Size.large, Weight.medium)
     item_size(rm, ('metal', 'half_boilers'), '#firmarail:half_boilers', Size.very_large, Weight.heavy)
     item_size(rm, ('metal', 'boilers'), '#firmarail:boilers', Size.huge, Weight.very_heavy)
-    
+    item_size(rm, ('metal', 'steam_locomotive'), 'railcraft:steam_locomotive', Size.huge, Weight.very_heavy)
     
 def generate_data():
     print('Generating data...')
