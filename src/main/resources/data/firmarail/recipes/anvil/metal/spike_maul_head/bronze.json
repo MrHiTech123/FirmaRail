@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "type": "tfc:anvil",
   "input": {
-    "item": "tfc:metal/ingot/bronze"
+    "item": "tfc:metal/hammer_head/bronze"
   },
   "result": {
     "item": "firmarail:metal/spike_maul_head/bronze"
