@@ -51,7 +51,7 @@ def generate_item_models():
     for metal, metal_data in METALS.items():
         if 'tool' in metal_data.types:
             rm.item_model(('metal', 'crowbar', metal), f'firmarail:item/metal/crowbar/{metal}', parent='minecraft:item/handheld').with_lang(lang(f'{metal} railworker\'s crowbar'))
-            rm.item_model(('metal', 'spike_maul', metal), f'firmarail:item/metal/spike_maul/{metal}', parent='minecraft:handheld').with_lang(lang(f'{metal}_spike_maul'))
+            rm.item_model(('metal', 'spike_maul', metal), f'firmarail:item/metal/spike_maul/{metal}', parent='minecraft:item/handheld').with_lang(lang(f'{metal}_spike_maul'))
             rm.item_model(('metal', 'spike_maul_head', metal), f'firmarail:item/metal/spike_maul_head/{metal}').with_lang(lang(f'{metal}_spike_maul_head'))
             rm.item_model(('metal', 'whistle_tuner', metal), f'firmarail:item/metal/whistle_tuner/{metal}').with_lang(lang(f'{metal}_whistle_tuner'))
             

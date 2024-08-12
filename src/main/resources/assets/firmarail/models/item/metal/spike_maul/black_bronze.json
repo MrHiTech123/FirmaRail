@@ -1,6 +1,6 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "parent": "handheld",
+  "parent": "item/handheld",
   "textures": {
     "layer0": "firmarail:item/metal/spike_maul/black_bronze"
   }
