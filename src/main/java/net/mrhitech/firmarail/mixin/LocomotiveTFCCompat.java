@@ -38,7 +38,7 @@ public abstract class LocomotiveTFCCompat extends RailcraftMinecart implements L
         super(type, level);
     }
     
-    @Inject(method = "interact", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "interact", at = @At("HEAD"), cancellable = true)
     public void injectInteract(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> info) {
         Logger.getGlobal().info("Hi");
         if (this.level().isClientSide()) {
