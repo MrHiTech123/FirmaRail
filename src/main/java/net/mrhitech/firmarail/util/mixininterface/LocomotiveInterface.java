@@ -1,6 +1,6 @@
 package net.mrhitech.firmarail.util.mixininterface;
 
 public interface LocomotiveInterface {
-    int getNewWhistlePitch();
+    float getNewWhistlePitch();
     void whistle();
 }

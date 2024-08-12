@@ -25,6 +25,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.logging.Logger;
+
 @Mixin(value = Locomotive.class, remap = false)
 public abstract class LocomotiveTFCCompat extends RailcraftMinecart implements Linkable, Directional, Lockable, Paintable, Routable, NeedsFuel, LocomotiveInterface {
     @Shadow
@@ -36,12 +38,17 @@ public abstract class LocomotiveTFCCompat extends RailcraftMinecart implements L
         super(type, level);
     }
     
-    @Inject(method = "interact", at = @At("HEAD"))
+    @Inject(method = "interact", at = @At("RETURN"), cancellable = true)
     public void injectInteract(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> info) {
+        Logger.getGlobal().info("Hi");
+        if (this.level().isClientSide()) {
+            return;
+        }
         System.out.println("Got Here 1?");
         var itemStack = player.getItemInHand(hand);
         System.out.println("Got Here 2?");
         if (!itemStack.isEmpty() && Helpers.isItem(itemStack, FirmaRailTags.Items.WHISTLE_TUNERS)) {
+            
             if (this.whistleDelay <= 0) {
                 this.whistlePitch = this.getNewWhistlePitch();
                 this.whistle();
@@ -50,7 +57,8 @@ public abstract class LocomotiveTFCCompat extends RailcraftMinecart implements L
             }
             System.out.println("Got Here 3?");
             info.setReturnValue(InteractionResult.sidedSuccess(this.level().isClientSide()));
-            System.out.println("Got Here 2?");
+            info.cancel();
+            System.out.println("Got Here 4?");
         }
 
     }
