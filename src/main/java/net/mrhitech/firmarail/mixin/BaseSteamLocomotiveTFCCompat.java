@@ -1,3 +1,10 @@
+/*
+Code taken from 1.20.x branch of Railcraft Reloaded, found here.
+
+https://github.com/railcraft-reborn/railcraft/tree/1.20.x
+*/
+
+
 package net.mrhitech.firmarail.mixin;
 
 import mods.railcraft.api.carts.FluidTransferHandler;
