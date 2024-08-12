@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfc:anvil",
+  "input": {
+    "item": "tfc:metal/rod/bismuth_bronze"
+  },
+  "result": {
+    "item": "firmarail:metal/whistle_tuner/bismuth_bronze"
+  },
+  "tier": 2,
+  "rules": [
+    "punch_third_last",
+    "upset_second_last",
+    "draw_last"
+  ],
+  "apply_forging_bonus": true
+}

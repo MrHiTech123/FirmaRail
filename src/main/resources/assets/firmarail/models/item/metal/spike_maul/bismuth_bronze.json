@@ -1,0 +1,7 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "parent": "handheld",
+  "textures": {
+    "layer0": "firmarail:item/metal/spike_maul/bismuth_bronze"
+  }
+}

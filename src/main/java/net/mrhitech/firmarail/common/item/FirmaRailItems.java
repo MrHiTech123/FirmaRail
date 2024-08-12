@@ -1,6 +1,9 @@
 package net.mrhitech.firmarail.common.item;
 
 import mods.railcraft.world.item.CrowbarItem;
+import mods.railcraft.world.item.RailcraftItems;
+import mods.railcraft.world.item.SpikeMaulItem;
+import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.common.items.ToolItem;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.Metal;
@@ -28,11 +31,23 @@ public class FirmaRailItems {
     public static final Map<Metal.Default, RegistryObject<Item>> CROWBARS = Helpers.mapOfKeys(Metal.Default.class, Metal.Default::hasTools, metal -> 
             ITEMS.register("metal/crowbar/" + metal.getSerializedName(), () -> new CrowbarItem(ToolItem.calculateVanillaAttackDamage(0.75f, metal.toolTier()), -2.8f, metal.toolTier(), new Item.Properties())));
     
+    public static final Map<Metal.Default, RegistryObject<Item>> SPIKE_MAULS = Helpers.mapOfKeys(Metal.Default.class, Metal.Default::hasTools, metal -> 
+            ITEMS.register("metal/spike_maul/" + metal.getSerializedName(), () -> new SpikeMaulItem(ToolItem.calculateVanillaAttackDamage(1.0F, metal.toolTier()), -3.0F, metal.toolTier(), new Item.Properties())));
+    
+    public static final Map<Metal.Default, RegistryObject<Item>> SPIKE_MAUL_HEADS = Helpers.mapOfKeys(Metal.Default.class, Metal.Default::hasTools, metal ->
+            ITEMS.register("metal/spike_maul_head/" + metal.getSerializedName(), () -> new Item(new Item.Properties())));
+    
+    public static final Map<Metal.Default, RegistryObject<Item>> WHISTLE_TUNERS = Helpers.mapOfKeys(Metal.Default.class, Metal.Default::hasTools, metal -> 
+            ITEMS.register("metal/whistle_tuner/" + metal.getSerializedName(), () -> new Item(new Item.Properties().durability(metal.toolTier().getUses()))));
+    
     public static final Map<Metal.Default, RegistryObject<Item>> METAL_COILS = Helpers.mapOfKeys(Metal.Default.class, Metal.Default::hasParts, metal -> 
             ITEMS.register("metal/coil/" + metal.getSerializedName(), () -> new Item(new Item.Properties())));
     
+    
+    
     public static void register(IEventBus bus) {
         ITEMS.register(bus);
+        
         
     }
     

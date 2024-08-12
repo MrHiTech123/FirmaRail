@@ -48,8 +48,10 @@ def generate_item_models():
     for metal, metal_data in METALS.items():
         if 'tool' in metal_data.types:
             rm.item_model(('metal', 'crowbar', metal), f'firmarail:item/metal/crowbar/{metal}', parent='minecraft:item/handheld').with_lang(lang(f'{metal} railworker\'s crowbar'))
-    
-    for metal, metal_data in METALS.items():
+            rm.item_model(('metal', 'spike_maul', metal), f'firmarail:item/metal/spike_maul/{metal}', parent='minecraft:handheld').with_lang(lang(f'{metal}_spike_maul'))
+            rm.item_model(('metal', 'spike_maul_head', metal), f'firmarail:item/metal/spike_maul_head/{metal}').with_lang(lang(f'{metal}_spike_maul_head'))
+            rm.item_model(('metal', 'whistle_tuner', metal), f'firmarail:item/metal/whistle_tuner/{metal}').with_lang(lang(f'{metal}_whistle_tuner'))
+            
         if 'part' in metal_data.types:
             rm.item_model(('metal', 'coil', metal), f'firmarail:item/metal/coil/{metal}').with_lang(lang(f'{metal}_coil'))
     
@@ -72,11 +74,12 @@ def generate_anvil_recipes():
     for metal, metal_data in METALS.items():
         if 'tool' in metal_data.types:
             anvil_recipe(rm, ('metal', 'crowbar', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/crowbar/{metal}', metal_data.tier, Rules.punch_third_last, Rules.punch_second_last, Rules.punch_last, bonus=True)
-    for metal, metal_data in METALS.items():
+            anvil_recipe(rm, ('metal', 'whistle_tuner', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/whistle_tuner/{metal}', metal_data.tier, Rules.punch_third_last, Rules.upset_second_last, Rules.draw_last, bonus=True)
+            anvil_recipe(rm, ('metal', 'spike_maul_head', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/spike_maul_head/{metal}', metal_data.tier, Rules.upset_not_last, Rules.upset_last, bonus=True)
         if 'part' in metal_data.types:
             anvil_recipe(rm, ('metal', 'coil', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/coil/{metal}', metal_data.tier, Rules.hit_third_last, Rules.hit_second_last, Rules.hit_last)
     
-    # TODO: WHISTLE TUNER
+    
 
 def generate_crafting_recipes():
     print('\tGenerating crafting recipes...')
@@ -168,6 +171,7 @@ def generate_item_tags():
     rm.item_tag('conductive_metal_coils', *[f'firmarail:metal/coil/{metal}' for metal in CONDUCTIVE_METALS])
     rm.item_tag('tool_metal_coils', *[f'firmarail:metal/coil/{metal}' for metal, metal_data in METALS.items() if 'tool' in metal_data.types])
     rm.item_tag('steam_locomotive_fuel', '#minecraft:coals')
+    rm.item_tag('whistle_tuners', *[f'firmarail:metal/whistle_tuner/{metal}' for metal, metal_data in METALS.items() if 'tool' in metal_data.types])
     
     
 

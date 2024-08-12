@@ -1,0 +1,16 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfc:anvil",
+  "input": {
+    "item": "tfc:metal/rod/copper"
+  },
+  "result": {
+    "item": "firmarail:metal/spike_maul_head/copper"
+  },
+  "tier": 1,
+  "rules": [
+    "upset_not_last",
+    "upset_last"
+  ],
+  "apply_forging_bonus": true
+}

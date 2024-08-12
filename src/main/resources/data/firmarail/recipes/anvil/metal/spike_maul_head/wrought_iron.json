@@ -1,0 +1,16 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfc:anvil",
+  "input": {
+    "item": "tfc:metal/rod/wrought_iron"
+  },
+  "result": {
+    "item": "firmarail:metal/spike_maul_head/wrought_iron"
+  },
+  "tier": 3,
+  "rules": [
+    "upset_not_last",
+    "upset_last"
+  ],
+  "apply_forging_bonus": true
+}

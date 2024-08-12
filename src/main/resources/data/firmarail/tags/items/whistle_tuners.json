@@ -1,0 +1,15 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "replace": false,
+  "values": [
+    "firmarail:metal/whistle_tuner/bismuth_bronze",
+    "firmarail:metal/whistle_tuner/black_bronze",
+    "firmarail:metal/whistle_tuner/bronze",
+    "firmarail:metal/whistle_tuner/copper",
+    "firmarail:metal/whistle_tuner/wrought_iron",
+    "firmarail:metal/whistle_tuner/steel",
+    "firmarail:metal/whistle_tuner/black_steel",
+    "firmarail:metal/whistle_tuner/blue_steel",
+    "firmarail:metal/whistle_tuner/red_steel"
+  ]
+}

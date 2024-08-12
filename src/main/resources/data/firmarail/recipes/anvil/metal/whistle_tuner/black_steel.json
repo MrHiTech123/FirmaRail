@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfc:anvil",
+  "input": {
+    "item": "tfc:metal/rod/black_steel"
+  },
+  "result": {
+    "item": "firmarail:metal/whistle_tuner/black_steel"
+  },
+  "tier": 5,
+  "rules": [
+    "punch_third_last",
+    "upset_second_last",
+    "draw_last"
+  ],
+  "apply_forging_bonus": true
+}

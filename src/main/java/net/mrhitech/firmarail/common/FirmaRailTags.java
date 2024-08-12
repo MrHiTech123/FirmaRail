@@ -9,5 +9,6 @@ import net.mrhitech.firmarail.FirmaRail;
 public class FirmaRailTags {
     public static class Items {
         public static TagKey<Item> STEAM_LOCOMOTIVE_FUEL = TagKey.create(Registries.ITEM, new ResourceLocation(FirmaRail.MOD_ID, "steam_locomotive_fuel"));
+        public static TagKey<Item> WHISTLE_TUNERS = TagKey.create(Registries.ITEM, new ResourceLocation(FirmaRail.MOD_ID, "whistle_tuners"));
     }
 }
