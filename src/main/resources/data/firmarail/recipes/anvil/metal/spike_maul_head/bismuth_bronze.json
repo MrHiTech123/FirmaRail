@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "type": "tfc:anvil",
   "input": {
-    "item": "tfc:metal/rod/bismuth_bronze"
+    "item": "tfc:metal/ingot/bismuth_bronze"
   },
   "result": {
     "item": "firmarail:metal/spike_maul_head/bismuth_bronze"

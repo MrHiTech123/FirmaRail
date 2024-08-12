@@ -78,7 +78,7 @@ def generate_anvil_recipes():
         if 'tool' in metal_data.types:
             anvil_recipe(rm, ('metal', 'crowbar', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/crowbar/{metal}', metal_data.tier, Rules.punch_third_last, Rules.punch_second_last, Rules.punch_last, bonus=True)
             anvil_recipe(rm, ('metal', 'whistle_tuner', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/whistle_tuner/{metal}', metal_data.tier, Rules.punch_third_last, Rules.upset_second_last, Rules.draw_last, bonus=True)
-            anvil_recipe(rm, ('metal', 'spike_maul_head', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/spike_maul_head/{metal}', metal_data.tier, Rules.upset_not_last, Rules.upset_last, bonus=True)
+            anvil_recipe(rm, ('metal', 'spike_maul_head', metal), f'tfc:metal/ingot/{metal}', f'firmarail:metal/spike_maul_head/{metal}', metal_data.tier, Rules.upset_not_last, Rules.upset_last, bonus=True)
         if 'part' in metal_data.types:
             anvil_recipe(rm, ('metal', 'coil', metal), f'tfc:metal/rod/{metal}', f'firmarail:metal/coil/{metal}', metal_data.tier, Rules.hit_third_last, Rules.hit_second_last, Rules.hit_last)
     
