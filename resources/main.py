@@ -88,8 +88,7 @@ def generate_anvil_recipes():
 
 def generate_crafting_recipes():
     print('\tGenerating crafting recipes...')
-    disable_recipe(rm, 'tfc:crafting/vanilla/redstone/minecart')
-    disable_recipe(rm, 'tfc:crafting/vanilla/redstone/steel_minecart')
+    
     
     
     rm.crafting_shaped(('crafting', 'metal', 'minecart'), ['S S', 'SSS', 'WRW'], {'S': 'tfc:metal/sheet/wrought_iron', 'W': 'firmarail:metal/minecart_wheel', 'R': '#firmarail:rods/metal'}, 'minecraft:minecart')
@@ -116,43 +115,11 @@ def generate_crafting_recipes():
     
     
     
-    for kit in ALL_TRACK_KITS:
-        disable_recipe(rm, f'railcraft:{kit}_track_kit')
     
-    disable_recipe(rm, 'railcraft:steam_locomotive')
-    disable_recipe(rm, 'railcraft:iron_crowbar')
-    disable_recipe(rm, 'railcraft:steel_crowbar')
-    disable_recipe(rm, 'railcraft:diamond_crowbar')
-    disable_recipe(rm, 'railcraft:iron_spike_maul')
-    disable_recipe(rm, 'railcraft:steel_spike_maul')
-    disable_recipe(rm, 'railcraft:diamond_spike_maul')
-    disable_recipe(rm, 'railcraft:whistle_tuner')
-    disable_recipe(rm, f'railcraft:steel_sword')
-    disable_recipe(rm, f'railcraft:steel_axe')
-    disable_recipe(rm, f'railcraft:steel_pickaxe')
-    disable_recipe(rm, f'railcraft:steel_shovel')
-    disable_recipe(rm, f'railcraft:steel_hoe')
-    disable_recipe(rm, f'railcraft:steel_helmet')
-    disable_recipe(rm, f'railcraft:steel_chestplate')
-    disable_recipe(rm, f'railcraft:steel_leggings')
-    disable_recipe(rm, f'railcraft:steel_boots')
-    disable_recipe(rm, f'railcraft:coke_oven_bricks')
-    disable_recipe(rm, f'railcraft:charge_meter')
-    disable_recipe(rm, f'railcraft:steel_anvil')
-    disable_recipe(rm, f'railcraft:brass_ingot_crafted_with_ingots')
-    disable_recipe(rm, f'railcraft:bronze_ingot_crafted_with_ingots')
-    disable_recipe(rm, f'railcraft:invar_ingot_crafted_with_ingots')
-    disable_recipe(rm, f'railcraft:bushing_gear_brass')
-    disable_recipe(rm, f'railcraft:bushing_gear_bronze')
-    disable_recipe(rm, f'railcraft:sheep_detector')
-    disable_recipe(rm, f'railcraft:tank_detector')
-    disable_recipe(rm, f'railcraft:villager_detector')
-    disable_recipe(rm, f'railcraft:signal_block_surveyor')
-    disable_recipe(rm, f'railcraft:overalls')
-    disable_recipe(rm, f'railcraft:track_parts_steel_nugget')
-    disable_recipe(rm, f'railcraft:track_parts_bronze_nugget')
-    disable_recipe(rm, f'railcraft:track_parts_iron_nugget')
-    disable_recipe(rm, f'railcraft:standard_rail_from_rail')
+    
+    
+    
+    
     
     
 def generate_heat_recipes():
@@ -170,12 +137,67 @@ def generate_heat_recipes():
             heat_recipe(rm, ('metal', 'whistle_tuner', metal), f'firmarail:metal/whistle_tuner/{metal}', metal_data.melt_temperature, result_fluid=f'50 {melt_metal(metal)}', use_durability=True)
         if 'part' in metal_data.types:
             heat_recipe(rm, ('metal', 'coil', metal), f'firmarail:metal/coil/{metal}', metal_data.melt_temperature, result_fluid=f'50 {melt_metal(metal)}')
-        
+            
+            
+def disable_recipes():
+    print('\tDisabling recipes...')
+    disable_recipe(rm, 'tfc:crafting/vanilla/redstone/minecart')
+    disable_recipe(rm, 'tfc:crafting/vanilla/redstone/steel_minecart')
+    disable_recipe(rm, 'railcraft:steam_locomotive')
+    disable_recipe(rm, 'railcraft:iron_crowbar')
+    disable_recipe(rm, 'railcraft:steel_crowbar')
+    disable_recipe(rm, 'railcraft:diamond_crowbar')
+    disable_recipe(rm, 'railcraft:iron_spike_maul')
+    disable_recipe(rm, 'railcraft:steel_spike_maul')
+    disable_recipe(rm, 'railcraft:diamond_spike_maul')
+    disable_recipe(rm, 'railcraft:whistle_tuner')
+    disable_recipe(rm, 'railcraft:steel_sword')
+    disable_recipe(rm, 'railcraft:steel_axe')
+    disable_recipe(rm, 'railcraft:steel_pickaxe')
+    disable_recipe(rm, 'railcraft:steel_shovel')
+    disable_recipe(rm, 'railcraft:steel_hoe')
+    disable_recipe(rm, 'railcraft:steel_helmet')
+    disable_recipe(rm, 'railcraft:steel_chestplate')
+    disable_recipe(rm, 'railcraft:steel_leggings')
+    disable_recipe(rm, 'railcraft:steel_boots')
+    disable_recipe(rm, 'railcraft:coke_oven_bricks')
+    disable_recipe(rm, 'railcraft:charge_meter')
+    disable_recipe(rm, 'railcraft:steel_anvil')
+    disable_recipe(rm, 'railcraft:brass_ingot_crafted_with_ingots')
+    disable_recipe(rm, 'railcraft:bronze_ingot_crafted_with_ingots')
+    disable_recipe(rm, 'railcraft:invar_ingot_crafted_with_ingots')
+    disable_recipe(rm, 'railcraft:bushing_gear_brass')
+    disable_recipe(rm, 'railcraft:bushing_gear_bronze')
+    disable_recipe(rm, 'railcraft:sheep_detector')
+    disable_recipe(rm, 'railcraft:tank_detector')
+    disable_recipe(rm, 'railcraft:villager_detector')
+    disable_recipe(rm, 'railcraft:signal_block_surveyor')
+    disable_recipe(rm, 'railcraft:overalls')
+    disable_recipe(rm, 'railcraft:track_parts_steel_nugget')
+    disable_recipe(rm, 'railcraft:track_parts_bronze_nugget')
+    disable_recipe(rm, 'railcraft:track_parts_iron_nugget')
+    disable_recipe(rm, 'railcraft:standard_rail_from_rail')
+    disable_recipe(rm, 'tfc:crafting/vanilla/redstone/rail')
+    disable_recipe(rm, 'tfc:crafting/vanilla/redstone/steel_rail')
+    disable_recipe(rm, 'tfc:crafting/vanilla/redstone/powered_rail')
+    disable_recipe(rm, 'tfc:crafting/vanilla/redstone/detector_rail')
+    disable_recipe(rm, 'tfc:crafting/vanilla/redstone/steel_detector_rail')
+    disable_recipe(rm, 'tfc:crafting/vanilla/redstone/activator_rail')
+    disable_recipe(rm, 'tfc:crafting/vanilla/redstone/steel_activator_rail')
+    disable_recipe(rm, 'minecraft:powered_rail')
+    disable_recipe(rm, 'minecraft:detector_rail')
+    disable_recipe(rm, 'minecraft:activator_rail')
+    
+    for kit in ALL_TRACK_KITS:
+        disable_recipe(rm, f'railcraft:{kit}_track_kit')
+
 def generate_recipes():
     print('Generating recipes...')
     generate_anvil_recipes()
     generate_crafting_recipes()
     generate_heat_recipes()
+    
+    disable_recipes()
     
 def generate_item_tags():
     print('\tGenerating item tags...')
