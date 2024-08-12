@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "firmarail:metal/crowbar/copper"
   },
-  "heat_capacity": 0.714,
+  "heat_capacity": 1.429,
   "forging_temperature": 648,
   "welding_temperature": 864
 }

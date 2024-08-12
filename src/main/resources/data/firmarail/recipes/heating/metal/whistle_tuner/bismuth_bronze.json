@@ -1,0 +1,13 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "firmarail:metal/whistle_tuner/bismuth_bronze"
+  },
+  "result_fluid": {
+    "fluid": "tfc:metal/bismuth_bronze",
+    "amount": 50
+  },
+  "temperature": 985,
+  "use_durability": true
+}

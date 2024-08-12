@@ -21,8 +21,10 @@ def generate_heat_data():
         item_heat(rm, ('metal', 'boiler', metal), f'firmarail:metal/boiler/{metal}', METALS[metal].ingot_heat_capacity(), METALS[metal].melt_temperature, 800 * coefficient)
     for metal, metal_data in METALS.items():
         if 'tool' in metal_data.types:
-            item_heat(rm, ('metal', 'crowbar', metal), f'firmarail:metal/crowbar/{metal}', METALS[metal].ingot_heat_capacity() / 2, METALS[metal].melt_temperature, 50)
-    for metal, metal_data in METALS.items():
+            item_heat(rm, ('metal', 'crowbar', metal), f'firmarail:metal/crowbar/{metal}', metal_data.ingot_heat_capacity(), metal_data.melt_temperature, 50)
+            item_heat(rm, ('metal', 'spike_maul', metal), f'firmarail:metal/spike_maul/{metal}', metal_data.ingot_heat_capacity(), metal_data.melt_temperature, 100)
+            item_heat(rm, ('metal', 'spike_maul_head', metal), f'firmarail:metal/spike_maul_head/{metal}', metal_data.ingot_heat_capacity(), metal_data.melt_temperature, 100)
+            item_heat(rm, ('metal', 'whistle_tuner', metal), f'firmarail:metal/whistle_tuner/{metal}', metal_data.ingot_heat_capacity(), metal_data.melt_temperature, 50)
         if 'part' in metal_data.types:
             item_heat(rm, ('metal', 'coil', metal), f'firmarail:metal/coil/{metal}', metal_data.ingot_heat_capacity(), metal_data.melt_temperature, 50)
 def generate_size_data():
@@ -31,6 +33,7 @@ def generate_size_data():
     item_size(rm, ('metal', 'half_boilers'), '#firmarail:half_boilers', Size.very_large, Weight.heavy)
     item_size(rm, ('metal', 'boilers'), '#firmarail:boilers', Size.huge, Weight.very_heavy)
     item_size(rm, ('metal', 'steam_locomotive'), 'railcraft:steam_locomotive', Size.huge, Weight.very_heavy)
+    item_size(rm, ('metal', 'whistle_tuners'), '#firmarail:whistle_tuners', Size.large, Weight.medium)
     
 def generate_data():
     print('Generating data...')
@@ -98,6 +101,7 @@ def generate_crafting_recipes():
     disable_recipe(rm, 'railcraft:iron_spike_maul')
     disable_recipe(rm, 'railcraft:steel_spike_maul')
     disable_recipe(rm, 'railcraft:diamond_spike_maul')
+    disable_recipe(rm, 'railcraft:whistle_tuner')
     
     rm.crafting_shapeless(('crafting', 'track_kit', 'locking'), ('#minecraft:wooden_pressure_plates', 'minecraft:redstone_torch', '#firmarail:conductive_metal_coils', '#tfc:magnetic_rocks'), 'railcraft:locking_track_kit')
     rm.crafting_shapeless(('crafting', 'track_kit', 'buffer_stop'), ('#minecraft:wooden_pressure_plates', '#firmarail:rods/metal', '#firmarail:rods/metal', '#firmarail:rods/metal'), 'railcraft:buffer_stop_track_kit')
@@ -108,6 +112,9 @@ def generate_crafting_recipes():
     rm.crafting_shapeless(('crafting', 'track_kit', 'dumping'), ('#minecraft:wooden_pressure_plates', 'minecraft:hopper'), 'railcraft:dumping_track_kit')
     rm.crafting_shapeless(('crafting', 'track_kit', 'disembarking'), ('#minecraft:wooden_pressure_plates', 'minecraft:redstone', '#firmarail:conductive_metal_coils'), 'railcraft:disembarking_track_kit')
     rm.crafting_shapeless(('crafting', 'track_kit', 'whistle'), ('#minecraft:wooden_pressure_plates', '#firmarail:rods/metal'), 'railcraft:whistle_track_kit')
+    for metal, metal_data in METALS.items():
+        advanced_shaped(rm, ('crafting', 'metal', 'spike_maul', metal), ('H', 'R'), {'H': f'firmarail:metal/spike_maul_head/{metal}', 'R': '#forge:rods/wooden'}, item_stack_provider(f'firmarail:metal/spike_maul/{metal}', copy_forging=True), (0, 0))
+    
     
     for kit in ALL_TRACK_KITS:
         disable_recipe(rm, f'railcraft:{kit}_track_kit')
@@ -150,10 +157,12 @@ def generate_heat_recipes():
     for metal, metal_data in METALS.items():
         if 'tool' in metal_data.types:
             heat_recipe(rm, ('metal', 'crowbar', metal), f'firmarail:metal/crowbar/{metal}', metal_data.melt_temperature, result_fluid=f'50 {melt_metal(metal)}', use_durability=True)
-    for metal, metal_data in METALS.items():
+            heat_recipe(rm, ('metal', 'spike_maul', metal), f'firmarail:metal/spike_maul/{metal}', metal_data.melt_temperature, result_fluid=f'100 {melt_metal(metal)}', use_durability=True)
+            heat_recipe(rm, ('metal', 'spike_maul_head', metal), f'firmarail:metal/spike_maul_head/{metal}', metal_data.melt_temperature, result_fluid=f'100 {melt_metal(metal)}')
+            heat_recipe(rm, ('metal', 'whistle_tuner', metal), f'firmarail:metal/whistle_tuner/{metal}', metal_data.melt_temperature, result_fluid=f'50 {melt_metal(metal)}', use_durability=True)
         if 'part' in metal_data.types:
             heat_recipe(rm, ('metal', 'coil', metal), f'firmarail:metal/coil/{metal}', metal_data.melt_temperature, result_fluid=f'50 {melt_metal(metal)}')
-
+        
 def generate_recipes():
     print('Generating recipes...')
     generate_anvil_recipes()

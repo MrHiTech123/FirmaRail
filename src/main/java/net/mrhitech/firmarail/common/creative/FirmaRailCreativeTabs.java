@@ -23,6 +23,9 @@ public class FirmaRailCreativeTabs {
             for (Metal.Default metal : Metal.Default.values()) {
                 if (metal.hasTools()) {
                     event.accept(FirmaRailItems.CROWBARS.get(metal));
+                    event.accept(FirmaRailItems.SPIKE_MAULS.get(metal));
+                    event.accept(FirmaRailItems.SPIKE_MAUL_HEADS.get(metal));
+                    event.accept(FirmaRailItems.WHISTLE_TUNERS.get(metal));
                 }
                 if (metal.hasParts()) {
                     event.accept(FirmaRailItems.METAL_COILS.get(metal));
