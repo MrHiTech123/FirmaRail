@@ -34,7 +34,6 @@ public abstract class SolidFuelProviderTFCCompat implements FuelProvider {
     
     @Overwrite
     public float consumeFuel() {
-        System.out.println("Running success");
         ItemStack fuelItem = container.getItem(this.slot);
         Fuel fuel = Fuel.get(fuelItem);
         int burn;

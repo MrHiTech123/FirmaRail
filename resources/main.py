@@ -94,14 +94,7 @@ def generate_crafting_recipes():
     rm.crafting_shaped(('crafting', 'metal', 'steel_minecart'), ['S S', 'SSS', 'WRW'], {'S': 'tfc:metal/sheet/steel', 'W': 'firmarail:metal/minecart_wheel', 'R': '#firmarail:rods/metal'}, (2, 'minecraft:minecart'))
     
     rm.crafting_shaped(('crafting', 'metal', 'steam_locomotive'), ['t  ', 'MB ', 'WRW'], {'t': '#tfc:tuyeres', 'M': 'tfc:brass_mechanisms', 'B': '#firmarail:boilers', 'W': 'firmarail:metal/minecart_wheel', 'R': '#firmarail:rods/metal'}, 'railcraft:steam_locomotive')
-    disable_recipe(rm, 'railcraft:steam_locomotive')
-    disable_recipe(rm, 'railcraft:iron_crowbar')
-    disable_recipe(rm, 'railcraft:steel_crowbar')
-    disable_recipe(rm, 'railcraft:diamond_crowbar')
-    disable_recipe(rm, 'railcraft:iron_spike_maul')
-    disable_recipe(rm, 'railcraft:steel_spike_maul')
-    disable_recipe(rm, 'railcraft:diamond_spike_maul')
-    disable_recipe(rm, 'railcraft:whistle_tuner')
+    
     
     rm.crafting_shapeless(('crafting', 'track_kit', 'locking'), ('#minecraft:wooden_pressure_plates', 'minecraft:redstone_torch', '#firmarail:conductive_metal_coils', '#tfc:magnetic_rocks'), 'railcraft:locking_track_kit')
     rm.crafting_shapeless(('crafting', 'track_kit', 'buffer_stop'), ('#minecraft:wooden_pressure_plates', '#firmarail:rods/metal', '#firmarail:rods/metal', '#firmarail:rods/metal'), 'railcraft:buffer_stop_track_kit')
@@ -119,6 +112,14 @@ def generate_crafting_recipes():
     for kit in ALL_TRACK_KITS:
         disable_recipe(rm, f'railcraft:{kit}_track_kit')
     
+    disable_recipe(rm, 'railcraft:steam_locomotive')
+    disable_recipe(rm, 'railcraft:iron_crowbar')
+    disable_recipe(rm, 'railcraft:steel_crowbar')
+    disable_recipe(rm, 'railcraft:diamond_crowbar')
+    disable_recipe(rm, 'railcraft:iron_spike_maul')
+    disable_recipe(rm, 'railcraft:steel_spike_maul')
+    disable_recipe(rm, 'railcraft:diamond_spike_maul')
+    disable_recipe(rm, 'railcraft:whistle_tuner')
     disable_recipe(rm, f'railcraft:steel_sword')
     disable_recipe(rm, f'railcraft:steel_axe')
     disable_recipe(rm, f'railcraft:steel_pickaxe')

@@ -40,13 +40,10 @@ public abstract class LocomotiveTFCCompat extends RailcraftMinecart implements L
     
     @Inject(method = "interact", at = @At("HEAD"), cancellable = true)
     public void injectInteract(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> info) {
-        Logger.getGlobal().info("Hi");
         if (this.level().isClientSide()) {
             return;
         }
-        System.out.println("Got Here 1?");
         var itemStack = player.getItemInHand(hand);
-        System.out.println("Got Here 2?");
         if (!itemStack.isEmpty() && Helpers.isItem(itemStack, FirmaRailTags.Items.WHISTLE_TUNERS)) {
             
             if (this.whistleDelay <= 0) {
@@ -55,10 +52,8 @@ public abstract class LocomotiveTFCCompat extends RailcraftMinecart implements L
                 itemStack.hurtAndBreak(1, (ServerPlayer) player,
                         serverPlayerEntity -> player.broadcastBreakEvent(hand));
             }
-            System.out.println("Got Here 3?");
             info.setReturnValue(InteractionResult.sidedSuccess(this.level().isClientSide()));
             info.cancel();
-            System.out.println("Got Here 4?");
         }
 
     }
