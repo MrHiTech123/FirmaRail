@@ -1,0 +1,21 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " T ",
+    "TRT",
+    " T "
+  ],
+  "key": {
+    "T": {
+      "item": "railcraft:wooden_tie"
+    },
+    "R": {
+      "item": "railcraft:standard_rail"
+    }
+  },
+  "result": {
+    "item": "railcraft:wooden_rail",
+    "count": 3
+  }
+}

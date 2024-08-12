@@ -68,7 +68,9 @@ def generate_anvil_recipes():
     anvil_recipe(rm, ('metal', 'minecart_wheel_steel'), 'tfc:metal/ingot/steel', (2, 'firmarail:metal/minecart_wheel'), METALS['steel'].tier, Rules.hit_third_last, Rules.hit_second_last, Rules.hit_last)
     anvil_recipe(rm, ('metal', 'quarter_boiler', 'wrought_iron'), 'tfc:metal/double_sheet/wrought_iron', 'firmarail:metal/quarter_boiler/wrought_iron', METALS['wrought_iron'].tier, Rules.bend_third_last, Rules.bend_second_last, Rules.bend_last)
     anvil_recipe(rm, ('metal', 'half_boiler', 'steel'), 'tfc:metal/double_sheet/steel', 'firmarail:metal/half_boiler/steel', METALS['steel'].tier, Rules.bend_third_last, Rules.bend_second_last, Rules.bend_last)
-    
+    anvil_recipe(rm, ('metal', 'standard_rail_from_iron'), 'tfc:metal/rod/wrought_iron', 'railcraft:standard_rail', METALS['wrought_iron'].tier, Rules.hit_third_last, Rules.hit_second_last, Rules.hit_last)
+    anvil_recipe(rm, ('metal', 'standard_rail_from_steel'), 'tfc:metal/rod/steel', (2, 'railcraft:standard_rail'), METALS['steel'].tier, Rules.hit_third_last, Rules.hit_second_last, Rules.hit_last)
+    anvil_recipe(rm, ('metal', 'reinforced_rail'), 'tfc:metal/rod/black_steel', (2, 'railcraft:reinforced_rail'), METALS['black_steel'].tier, Rules.hit_third_last, Rules.hit_second_last, Rules.hit_last)
     
     welding_recipe(rm, ('metal', 'half_boiler', 'wrought_iron'), 'firmarail:metal/quarter_boiler/wrought_iron', 'firmarail:metal/quarter_boiler/wrought_iron', 'firmarail:metal/half_boiler/wrought_iron', METALS['wrought_iron'].tier - 1)
     for metal in BOILER_METAL_COEFFICIENTS:
@@ -92,7 +94,6 @@ def generate_crafting_recipes():
     
     rm.crafting_shaped(('crafting', 'metal', 'minecart'), ['S S', 'SSS', 'WRW'], {'S': 'tfc:metal/sheet/wrought_iron', 'W': 'firmarail:metal/minecart_wheel', 'R': '#firmarail:rods/metal'}, 'minecraft:minecart')
     rm.crafting_shaped(('crafting', 'metal', 'steel_minecart'), ['S S', 'SSS', 'WRW'], {'S': 'tfc:metal/sheet/steel', 'W': 'firmarail:metal/minecart_wheel', 'R': '#firmarail:rods/metal'}, (2, 'minecraft:minecart'))
-    
     rm.crafting_shaped(('crafting', 'metal', 'steam_locomotive'), ['t  ', 'MB ', 'WRW'], {'t': '#tfc:tuyeres', 'M': 'tfc:brass_mechanisms', 'B': '#firmarail:boilers', 'W': 'firmarail:metal/minecart_wheel', 'R': '#firmarail:rods/metal'}, 'railcraft:steam_locomotive')
     
     
@@ -107,6 +108,12 @@ def generate_crafting_recipes():
     rm.crafting_shapeless(('crafting', 'track_kit', 'whistle'), ('#minecraft:wooden_pressure_plates', '#firmarail:rods/metal'), 'railcraft:whistle_track_kit')
     for metal, metal_data in METALS.items():
         advanced_shaped(rm, ('crafting', 'metal', 'spike_maul', metal), ('H', 'R'), {'H': f'firmarail:metal/spike_maul_head/{metal}', 'R': '#forge:rods/wooden'}, item_stack_provider(f'firmarail:metal/spike_maul/{metal}', copy_forging=True), (0, 0))
+    
+    rm.crafting_shaped(('crafting', 'wooden_tie'), ('LLL',), {'L': '#tfc:lumber'}, (6, 'railcraft:wooden_tie'))
+    rm.crafting_shaped(('crafting', 'wooden_tie_from_treated_lumber'), ('LLL',), {'L': 'firmalife:treated_lumber'}, (12, 'railcraft:wooden_tie'))
+    rm.crafting_shaped(('crafting', 'stone_tie'), (' W ', 'AAA'), {'W': fluid_item_ingredient('1000 minecraft:water'), 'A': 'tfc:aggregate'}, (32, 'railcraft:stone_tie'))
+    rm.crafting_shaped(('crafting', 'wooden_rail'), (' T ', 'TRT', ' T '), {'T': 'railcraft:wooden_tie', 'R': 'railcraft:standard_rail'}, (3, 'railcraft:wooden_rail'))
+    
     
     
     for kit in ALL_TRACK_KITS:
