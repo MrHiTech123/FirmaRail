@@ -40,6 +40,10 @@ def generate_data():
     generate_heat_data()
     generate_size_data()
 
+def generate_misc_lang():
+    print('Generating misc lang...')
+    rm.lang('firmarail.creative_tab.firmarail', 'Firmarail')
+
 def generate_item_models():
     print('\tGenerating item models...')
     rm.item_model(('metal', 'minecart_wheel'), 'firmarail:item/metal/minecart_wheel').with_lang(lang('minecart_wheel'))
@@ -57,6 +61,8 @@ def generate_item_models():
             
         if 'part' in metal_data.types:
             rm.item_model(('metal', 'coil', metal), f'firmarail:item/metal/coil/{metal}').with_lang(lang(f'{metal}_coil'))
+    
+    rm.item_model('leather_strap', 'firmarail:item/leather_strap').with_lang(lang('leather_strap'))
     
 def generate_models():
     print('Generating models...')
@@ -112,14 +118,7 @@ def generate_crafting_recipes():
     rm.crafting_shaped(('crafting', 'wooden_tie_from_treated_lumber'), ('LLL',), {'L': 'firmalife:treated_lumber'}, (12, 'railcraft:wooden_tie'))
     rm.crafting_shaped(('crafting', 'stone_tie'), (' W ', 'AAA'), {'W': fluid_item_ingredient('1000 minecraft:water'), 'A': 'tfc:aggregate'}, (32, 'railcraft:stone_tie'))
     rm.crafting_shaped(('crafting', 'wooden_rail'), (' T ', 'TRT', ' T '), {'T': 'railcraft:wooden_tie', 'R': 'railcraft:standard_rail'}, (3, 'railcraft:wooden_rail'))
-    
-    
-    
-    
-    
-    
-    
-    
+    rm.crafting_shapeless(('crafting', 'goggles'), ('tfc:lens', 'firmarail:leather_strap', 'tfc:lens'), 'railcraft:goggles')
     
     
 def generate_heat_recipes():
@@ -137,7 +136,14 @@ def generate_heat_recipes():
             heat_recipe(rm, ('metal', 'whistle_tuner', metal), f'firmarail:metal/whistle_tuner/{metal}', metal_data.melt_temperature, result_fluid=f'50 {melt_metal(metal)}', use_durability=True)
         if 'part' in metal_data.types:
             heat_recipe(rm, ('metal', 'coil', metal), f'firmarail:metal/coil/{metal}', metal_data.melt_temperature, result_fluid=f'50 {melt_metal(metal)}')
-            
+
+def generate_leather_knapping_recipes():
+    print('\t\tGenerating leather knapping recipes...')
+    leather_knapping(rm, ('leather_strap'), ('XXXXX', 'X   X', 'XXXXX'), 'firmarail:leather_strap', False)
+
+def generate_knapping_recipes():
+    print('\tGenerating knapping recipes...')
+    generate_leather_knapping_recipes()
             
 def disable_recipes():
     print('\tDisabling recipes...')
@@ -187,6 +193,7 @@ def disable_recipes():
     disable_recipe(rm, 'minecraft:powered_rail')
     disable_recipe(rm, 'minecraft:detector_rail')
     disable_recipe(rm, 'minecraft:activator_rail')
+    disable_recipe(rm, 'railcraft:goggles')
     
     for kit in ALL_TRACK_KITS:
         disable_recipe(rm, f'railcraft:{kit}_track_kit')
@@ -196,6 +203,8 @@ def generate_recipes():
     generate_anvil_recipes()
     generate_crafting_recipes()
     generate_heat_recipes()
+    generate_knapping_recipes()
+    
     
     disable_recipes()
     
@@ -220,6 +229,7 @@ def generate_tags():
 
 def generate_all():
     generate_data()
+    generate_misc_lang()
     generate_models()
     generate_recipes()
     generate_tags()

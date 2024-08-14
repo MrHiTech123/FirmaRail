@@ -33,6 +33,7 @@ public class FirmaRail
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         
         FirmaRailItems.register(modEventBus);
+        FirmaRailCreativeTabs.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

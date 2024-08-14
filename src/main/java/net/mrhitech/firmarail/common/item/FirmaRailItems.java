@@ -43,7 +43,7 @@ public class FirmaRailItems {
     public static final Map<Metal.Default, RegistryObject<Item>> METAL_COILS = Helpers.mapOfKeys(Metal.Default.class, Metal.Default::hasParts, metal -> 
             ITEMS.register("metal/coil/" + metal.getSerializedName(), () -> new Item(new Item.Properties())));
     
-    
+    public static final RegistryObject<Item> LEATHER_STRAP = ITEMS.register("leather_strap", () -> new Item(new Item.Properties()));
     
     public static void register(IEventBus bus) {
         ITEMS.register(bus);

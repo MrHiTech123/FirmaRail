@@ -1,5 +1,6 @@
 {
   "__comment__": "This file was automatically created by mcresources",
+  "firmarail.creative_tab.firmarail": "Firmarail",
   "item.firmarail.metal.minecart_wheel": "Minecart Wheel",
   "item.firmarail.metal.quarter_boiler.wrought_iron": "Wrought Iron Quarter Boiler",
   "item.firmarail.metal.half_boiler.wrought_iron": "Wrought Iron Half Boiler",
@@ -60,5 +61,6 @@
   "item.firmarail.metal.spike_maul.red_steel": "Red Steel Spike Maul",
   "item.firmarail.metal.spike_maul_head.red_steel": "Red Steel Spike Maul Head",
   "item.firmarail.metal.whistle_tuner.red_steel": "Red Steel Whistle Tuner",
-  "item.firmarail.metal.coil.red_steel": "Red Steel Coil"
+  "item.firmarail.metal.coil.red_steel": "Red Steel Coil",
+  "item.firmarail.leather_strap": "Leather Strap"
 }
