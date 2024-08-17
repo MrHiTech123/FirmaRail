@@ -43,6 +43,7 @@ def generate_data():
 def generate_misc_lang():
     print('Generating misc lang...')
     rm.lang('firmarail.creative_tab.firmarail', 'Firmarail')
+    
 
 def generate_item_models():
     print('\tGenerating item models...')
@@ -119,7 +120,8 @@ def generate_crafting_recipes():
     rm.crafting_shaped(('crafting', 'stone_tie'), (' W ', 'AAA'), {'W': fluid_item_ingredient('1000 minecraft:water'), 'A': 'tfc:aggregate'}, (32, 'railcraft:stone_tie'))
     rm.crafting_shaped(('crafting', 'wooden_rail'), (' T ', 'TRT', ' T '), {'T': 'railcraft:wooden_tie', 'R': 'railcraft:standard_rail'}, (3, 'railcraft:wooden_rail'))
     rm.crafting_shapeless(('crafting', 'goggles'), ('tfc:lens', 'firmarail:leather_strap', 'tfc:lens'), 'railcraft:goggles')
-    
+    rm.crafting_shapeless(('crafting', 'switch_track_lever'), ('minecraft:lever', 'tfc:brass_mechanisms'), 'railcraft:switch_track_lever')
+    rm.crafting_shapeless(('crafting', 'switch_track_motor'), ('railcraft:switch_track_lever', 'minecraft:redstone'), 'railcraft:switch_track_motor')
     
 def generate_heat_recipes():
     print('\tGenerating heat recipes...')
@@ -194,6 +196,9 @@ def disable_recipes():
     disable_recipe(rm, 'minecraft:detector_rail')
     disable_recipe(rm, 'minecraft:activator_rail')
     disable_recipe(rm, 'railcraft:goggles')
+    disable_recipe(rm, 'railcraft:switch_track_lever')
+    disable_recipe(rm, 'railcraft:switch_track_motor')
+    
     
     for kit in ALL_TRACK_KITS:
         disable_recipe(rm, f'railcraft:{kit}_track_kit')

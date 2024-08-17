@@ -1,0 +1,15 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "railcraft:switch_track_lever"
+    },
+    {
+      "item": "minecraft:redstone"
+    }
+  ],
+  "result": {
+    "item": "railcraft:switch_track_motor"
+  }
+}

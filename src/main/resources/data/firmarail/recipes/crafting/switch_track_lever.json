@@ -1,0 +1,15 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:lever"
+    },
+    {
+      "item": "tfc:brass_mechanisms"
+    }
+  ],
+  "result": {
+    "item": "railcraft:switch_track_lever"
+  }
+}
