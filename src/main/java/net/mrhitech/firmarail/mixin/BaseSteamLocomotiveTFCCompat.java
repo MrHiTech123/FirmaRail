@@ -40,7 +40,7 @@ public abstract class BaseSteamLocomotiveTFCCompat extends Locomotive implements
         super(type, level);
     }
     
-    @Inject(method = "tick", at = @At("HEAD"))
+    @Inject(method = "tick", at = @At("HEAD"), remap = true)
     public void injectTick(CallbackInfo info) {
         if (!(this.steamTank.getRemainingSpace() >= SteamConstants.STEAM_PER_UNIT_WATER
                 || this.isShutdown())) {
