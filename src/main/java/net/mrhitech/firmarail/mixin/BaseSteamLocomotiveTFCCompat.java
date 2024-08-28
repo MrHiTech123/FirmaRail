@@ -1,5 +1,5 @@
 /*
-Code taken from 1.20.x branch of Railcraft Reloaded, found here.
+Code taken from 1.20.x branch of Railcraft Reborn, found here.
 
 https://github.com/railcraft-reborn/railcraft/tree/1.20.x
 */
